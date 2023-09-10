@@ -1087,3 +1087,5 @@
 373072	373731	7160300543548396	C:/Users/activcount/github/ESP32-Rainmaker-Multi/multi_device/build/.bin_timestamp	406f62bdf2d0f259
 373732	373907	0	esp-idf/esptool_py/CMakeFiles/app_check_size	c4c2a75d84ab5fe5
 373732	373907	0	C:/Users/activcount/github/ESP32-Rainmaker-Multi/multi_device/build/esp-idf/esptool_py/CMakeFiles/app_check_size	c4c2a75d84ab5fe5
+0	736108	0	CMakeFiles/confserver	f7ef552ade201421
+0	736108	0	C:/Users/activcount/github/ESP32-Rainmaker-Multi/multi_device/build/CMakeFiles/confserver	f7ef552ade201421
