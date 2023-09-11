@@ -17,7 +17,7 @@ menu "Example Configuration"
 
     config LED_OUTPUT_GPIO
         int "Northern Lights GPIO"
-        default 19 
+        default 12 
         help
             This is an output GPIO that will be connected to a northern lights LED.
             If the power changes, this GPIO output level will also change.
