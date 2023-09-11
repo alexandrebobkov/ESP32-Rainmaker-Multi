@@ -27,6 +27,7 @@
 static const char *TAG = "app_main";
 
 esp_rmaker_device_t *switch_device;
+esp_rmaker_device_t *led_device;
 esp_rmaker_device_t *light_device;
 esp_rmaker_device_t *fan_device;
 esp_rmaker_device_t *temp_sensor_device;
@@ -45,6 +46,9 @@ static esp_err_t write_cb(const esp_rmaker_device_t *device, const esp_rmaker_pa
                 val.val.b? "true" : "false", device_name, param_name);
         if (strcmp(device_name, "Switch") == 0) {
             app_driver_set_state(val.val.b);
+        }
+        if (strcmp(device_name, "LED") == 0) {
+            led_driver_set_state(val.val.b);
         }
     } else if (strcmp(param_name, ESP_RMAKER_DEF_BRIGHTNESS_NAME) == 0) {
         ESP_LOGI(TAG, "Received value = %d for %s - %s",
@@ -67,6 +71,7 @@ void app_main()
      */
     app_driver_init();
     app_driver_set_state(DEFAULT_SWITCH_POWER);
+    led_driver_set_state(DEFAULT_SWITCH_POWER);
 
     /* Initialize NVS. */
     esp_err_t err = nvs_flash_init();
@@ -100,6 +105,14 @@ void app_main()
     switch_device = esp_rmaker_switch_device_create("Switch", NULL, DEFAULT_SWITCH_POWER);
     esp_rmaker_device_add_cb(switch_device, write_cb, NULL);
     esp_rmaker_node_add_device(node, switch_device);
+
+    /* ===================================
+                    LED
+       =================================== */
+    /* Create a Switch device and add the relevant parameters to it */
+    led_device = esp_rmaker_switch_device_create("LED", NULL, DEFAULT_SWITCH_POWER);
+    esp_rmaker_device_add_cb(led_device, write_cb, NULL);
+    esp_rmaker_node_add_device(node, led_device);
 
     /* ===================================
                     LIGHT

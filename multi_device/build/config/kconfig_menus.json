@@ -4040,6 +4040,16 @@
                 "range": null,
                 "title": "Output GPIO",
                 "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "This is an output GPIO that will be connected to a northern lights LED.\nIf the power changes, this GPIO output level will also change.",
+                "id": "LED_OUTPUT_GPIO",
+                "name": "LED_OUTPUT_GPIO",
+                "range": null,
+                "title": "Northern Lights GPIO",
+                "type": "int"
             }
         ],
         "depends_on": null,
