@@ -93,29 +93,38 @@ void app_main()
         abort();
     }
 
+    /* ===================================
+                    SWITCH
+       =================================== */
     /* Create a Switch device and add the relevant parameters to it */
     switch_device = esp_rmaker_switch_device_create("Switch", NULL, DEFAULT_SWITCH_POWER);
     esp_rmaker_device_add_cb(switch_device, write_cb, NULL);
     esp_rmaker_node_add_device(node, switch_device);
 
+    /* ===================================
+                    LIGHT
+       =================================== */
     /* Create a Light device and add the relevant parameters to it */
     light_device = esp_rmaker_lightbulb_device_create("Light", NULL, DEFAULT_LIGHT_POWER);
-    esp_rmaker_device_add_cb(light_device, write_cb, NULL);
-    
+    esp_rmaker_device_add_cb(light_device, write_cb, NULL);    
     esp_rmaker_device_add_param(light_device,
-            esp_rmaker_brightness_param_create(ESP_RMAKER_DEF_BRIGHTNESS_NAME, DEFAULT_LIGHT_BRIGHTNESS));
-    
+            esp_rmaker_brightness_param_create(ESP_RMAKER_DEF_BRIGHTNESS_NAME, DEFAULT_LIGHT_BRIGHTNESS));    
     esp_rmaker_device_add_attribute(light_device, "Serial Number", "012345");
     esp_rmaker_device_add_attribute(light_device, "MAC", "xx:yy:zz:aa:bb:cc");
-
     esp_rmaker_node_add_device(node, light_device);
-    
+
+    /* ===================================
+                    FAN
+       =================================== */    
     /* Create a Fan device and add the relevant parameters to it */
     fan_device = esp_rmaker_fan_device_create("Fan", NULL, DEFAULT_FAN_POWER);
     esp_rmaker_device_add_cb(fan_device, write_cb, NULL);
     esp_rmaker_device_add_param(fan_device, esp_rmaker_speed_param_create(ESP_RMAKER_DEF_SPEED_NAME, DEFAULT_FAN_SPEED));
     esp_rmaker_node_add_device(node, fan_device);
     
+    /* ===================================
+                    SWITCH
+       =================================== */
     /* Create a Temperature Sensor device and add the relevant parameters to it */
     temp_sensor_device = esp_rmaker_temp_sensor_device_create("Temperature Sensor", NULL, app_get_current_temperature());
     esp_rmaker_node_add_device(node, temp_sensor_device);

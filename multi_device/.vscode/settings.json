@@ -1,4 +1,5 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
-  "idf.portWin": "COM10"
+  "idf.portWin": "COM10",
+  "idf.adapterTargetName": "esp32"
 }
