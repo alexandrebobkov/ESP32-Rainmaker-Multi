@@ -27,7 +27,7 @@
 static const char *TAG = "app_main";
 
 esp_rmaker_device_t *switch_device;
-esp_rmaker_device_t *led_device;
+esp_rmaker_device_t *led_device;                // LED
 esp_rmaker_device_t *light_device;
 esp_rmaker_device_t *fan_device;
 esp_rmaker_device_t *temp_sensor_device;

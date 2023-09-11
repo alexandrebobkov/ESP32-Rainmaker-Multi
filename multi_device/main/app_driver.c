@@ -20,11 +20,11 @@
 #include "app_priv.h"
 
 /* This is the button that is used for toggling the power */
-#define BUTTON_GPIO          CONFIG_EXAMPLE_BOARD_BUTTON_GPIO
+#define BUTTON_GPIO         CONFIG_EXAMPLE_BOARD_BUTTON_GPIO
 #define BUTTON_ACTIVE_LEVEL  0
 /* This is the GPIOs on which the power will be set */
-#define OUTPUT_GPIO    CONFIG_EXAMPLE_OUTPUT_GPIO
-#define LED_GPIO       CONFIG_LED_OUTPUT_GPIO
+#define OUTPUT_GPIO         CONFIG_EXAMPLE_OUTPUT_GPIO
+#define LED_GPIO            CONFIG_LED_OUTPUT_GPIO
 
 /* These values correspoind to H,S,V = 120,100,10 */
 #define DEFAULT_RED     0
@@ -34,9 +34,9 @@
 #define WIFI_RESET_BUTTON_TIMEOUT       3
 #define FACTORY_RESET_BUTTON_TIMEOUT    10
 
-static bool g_power_state = DEFAULT_SWITCH_POWER;
-static bool g_led_state = DEFAULT_SWITCH_POWER;
-static float g_temperature = DEFAULT_TEMPERATURE;
+static bool     g_power_state = DEFAULT_SWITCH_POWER;
+static bool     g_led_state = DEFAULT_SWITCH_POWER;
+static float    g_temperature = DEFAULT_TEMPERATURE;
 static TimerHandle_t sensor_timer;
 
 static void app_sensor_update(TimerHandle_t handle)
@@ -79,6 +79,7 @@ static void app_indicator_set(bool state)
     }
 }
 
+// Initialize indicators GUI
 static void app_indicator_init(void)
 {
     ws2812_led_init();
@@ -86,6 +87,7 @@ static void app_indicator_init(void)
     app_indicator_set(g_led_state);
 }
 
+// Control toggle buttons
 static void push_btn_cb(void *arg)
 {
     bool new_state = !g_power_state;
@@ -102,7 +104,7 @@ static void push_btn_led(void *arg)
                 esp_rmaker_device_get_param_by_type(led_device, ESP_RMAKER_PARAM_POWER),
                 esp_rmaker_bool(new_state));
 }
-
+// GUIO power state
 static void set_power_state(bool target)
 {
     gpio_set_level(OUTPUT_GPIO, target);
@@ -125,7 +127,7 @@ void app_driver_init()
         app_reset_button_register(btn_handle, WIFI_RESET_BUTTON_TIMEOUT, FACTORY_RESET_BUTTON_TIMEOUT);
     }
 
-    /* Configure power */
+    /* Configure GUIO pins */
     gpio_config_t io_conf = {
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = 1,
@@ -136,6 +138,7 @@ void app_driver_init()
     io_conf.pin_bit_mask = pin_mask;
     /* Configure the GPIO */
     gpio_config(&io_conf);
+    
     app_indicator_init();
     app_sensor_init();
 }
