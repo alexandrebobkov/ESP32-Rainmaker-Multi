@@ -26,5 +26,6 @@ extern esp_rmaker_device_t *temp_sensor_device;
 void  app_driver_init(void);
 int   app_driver_set_state(bool state);
 int   led_driver_set_state(bool state);            // function controlling state of LED GUIO
+int   fan_driver_set_state(bool state);
 bool  app_driver_get_state(void);
 float app_get_current_temperature();

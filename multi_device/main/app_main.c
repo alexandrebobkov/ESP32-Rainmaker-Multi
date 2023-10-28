@@ -72,6 +72,7 @@ void app_main()
     app_driver_init();
     app_driver_set_state(DEFAULT_SWITCH_POWER);
     led_driver_set_state(DEFAULT_SWITCH_POWER);
+    fan_driver_set_state(DEFAULT_SWITCH_POWER);
 
     /* Initialize NVS. */
     esp_err_t err = nvs_flash_init();
@@ -91,7 +92,7 @@ void app_main()
     esp_rmaker_config_t rainmaker_cfg = {
         .enable_time_sync = false,
     };
-    esp_rmaker_node_t *node = esp_rmaker_node_init(&rainmaker_cfg, "ESP RainMaker Multi Device", "Multi Device");
+    esp_rmaker_node_t *node = esp_rmaker_node_init(&rainmaker_cfg, "ESP Workdesk Automation Assistant", "Multiple Devices");
     if (!node) {
         ESP_LOGE(TAG, "Could not initialise node. Aborting!!!");
         vTaskDelay(5000/portTICK_PERIOD_MS);
@@ -136,7 +137,7 @@ void app_main()
     esp_rmaker_node_add_device(node, fan_device);
     
     /* ===================================
-                    SWITCH
+                    TEMPERATURE SENSOR
        =================================== */
     /* Create a Temperature Sensor device and add the relevant parameters to it */
     temp_sensor_device = esp_rmaker_temp_sensor_device_create("Temperature Sensor", NULL, app_get_current_temperature());
