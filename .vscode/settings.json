@@ -1,0 +1,4 @@
+{
+    "idf.portWin": "COM9",
+    "cmake.sourceDirectory": "C:/Users/alex/github/ESP32-Rainmaker-Multi/multi_device"
+}
