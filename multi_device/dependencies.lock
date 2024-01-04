@@ -8,31 +8,31 @@ dependencies:
   espressif/esp_diag_data_store:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp-insights\components\esp_diag_data_store
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp-insights\components\esp_diag_data_store
       type: local
     version: 1.0.1
   espressif/esp_diagnostics:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp-insights\components\esp_diagnostics
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp-insights\components\esp_diagnostics
       type: local
     version: 1.0.1
   espressif/esp_insights:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp-insights\components\esp_insights
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp-insights\components\esp_insights
       type: local
     version: 1.0.1
   espressif/esp_rainmaker:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp_rainmaker
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp_rainmaker
       type: local
     version: 1.0.0
   espressif/esp_schedule:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp_schedule
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp_schedule
       type: local
     version: 1.1.0
   espressif/esp_secure_cert_mgr:
@@ -50,13 +50,13 @@ dependencies:
   espressif/json_generator:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\json_generator
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\json_generator
       type: local
     version: 1.1.1
   espressif/json_parser:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\json_parser
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\json_parser
       type: local
     version: 1.0.3
   espressif/mdns:
@@ -68,7 +68,7 @@ dependencies:
   espressif/rmaker_common:
     component_hash: null
     source:
-      path: C:\Users\alex\.espressif\esp-rainmaker\components\esp-insights\components\rmaker_common
+      path: C:\Users\alex\.espressif\tools\esp-rainmaker\components\esp-insights\components\rmaker_common
       type: local
     version: 1.4.3
   idf:
@@ -76,6 +76,6 @@ dependencies:
     source:
       type: idf
     version: 5.1.2
-manifest_hash: 1c9484020ade97e5a00861d94333b4eff33e5de54bb5c59e4245c422ca626047
+manifest_hash: 853e0489b8f78444a6a33b235d425a95364d1d4733b1566a75bb9cab5ebe014e
 target: esp32
 version: 1.0.0
